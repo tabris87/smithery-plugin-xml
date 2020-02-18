@@ -1,0 +1,50 @@
+{
+    "name": "featurecli-plugin-xml",
+    "version": "0.1.0",
+    "description": "XML Plugin for the featureCLI",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest --runInBand"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tabris87/featureCLI-plugin-xml.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/tabris87/featureCLI-plugin-xml/issues"
+    },
+    "homepage": "https://github.com/tabris87/featureCLI-plugin-xml#readme",
+    "devDependencies": {
+        "jest": "^25.1.0",
+        "jest-html-reporters": "^1.2.1"
+    },
+    "dependencies": {
+        "featurecli-commons": "git+https://github.com/tabris87/featureCLI-commons.git#master",
+        "xml-js": "^1.6.11"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "roots": [
+            "test"
+        ],
+        "collectCoverage": true,
+        "coverageReporters": [
+            "text",
+            "html"
+        ],
+        "reporters": [
+            "default",
+            [
+                "jest-html-reporters",
+                {
+                    "filename": "./test/latestTests.html",
+                    "expand": false,
+                    "pageTitle": "featureJS-plugin-xml",
+                    "hideIcon": true
+                }
+            ]
+        ]
+    }
+}
