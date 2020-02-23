@@ -40,7 +40,6 @@ const aTests = [{
                 return attribute;
             })()
         ]
-        node.elements = [];
         node.parent = undefined;
         return node;
     }
@@ -80,7 +79,6 @@ const aTests = [{
                 child.type = "element";
                 child.path = "declaration.element";
                 child.name = "note";
-                child.elements = []
                 child.parent = node;
                 return child;
             })()
