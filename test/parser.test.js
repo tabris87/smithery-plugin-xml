@@ -1,17 +1,6 @@
 const parser = require('../lib/parser');
 const Node = require('featurecli-commons').types.Node;
 
-/* test('Large XML to Tree', () => {
-    const xml =
-        '<?xml version="1.0" encoding="utf-8"?>' +
-        '<note importance="high" logged="true">' +
-        '    <title>Happy</title>' +
-        '    <todo>Work</todo>' +
-        '    <todo>Play</todo>' +
-        '</note>';
-    expect(parser.parse(xml)).toBeDefined();
-}); */
-
 const aTests = [{
     title: 'Declaration to Tree',
     xml: '<?xml version="1.0" encoding="utf-8"?>',
