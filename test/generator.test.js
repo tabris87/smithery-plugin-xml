@@ -9,6 +9,7 @@ const aTests = [{
         node.type = "declaration";
         node.path = "declaration";
         node.name = "root";
+        node.originalName = "root";
         node.elements = [];
         node.parent = undefined;
         node.attributes = [
@@ -17,6 +18,7 @@ const aTests = [{
                 attribute.type = "attributes";
                 attribute.path = "declaration.attributes";
                 attribute.name = "version";
+                attribute.originalName = "version";
                 attribute.value = "1.0";
                 return attribute;
             })(),
@@ -25,6 +27,7 @@ const aTests = [{
                 attribute.type = "attributes";
                 attribute.path = "declaration.attributes";
                 attribute.name = "encoding";
+                attribute.originalName = "encoding";
                 attribute.value = "utf-8";
                 return attribute;
             })()
@@ -39,6 +42,7 @@ const aTests = [{
         node.type = "declaration";
         node.path = "declaration";
         node.name = "root";
+        node.originalName = "root";
         node.parent = undefined;
         node.attributes = [
             (function () {
@@ -46,6 +50,7 @@ const aTests = [{
                 attribute.type = "attribute";
                 attribute.path = "declaration.attribute";
                 attribute.name = "version";
+                attribute.originalName = "version";
                 attribute.value = "1.0";
                 return attribute;
             })(),
@@ -54,6 +59,7 @@ const aTests = [{
                 attribute.type = "attribute";
                 attribute.path = "declaration.attribute";
                 attribute.name = "encoding";
+                attribute.originalName = "encoding";
                 attribute.value = "utf-8";
                 return attribute;
             })()
@@ -64,6 +70,7 @@ const aTests = [{
                 child.type = "element";
                 child.path = "declaration.element";
                 child.name = "note";
+                child.originalName = "note";
                 child.elements = []
                 child.parent = node;
                 return child;
