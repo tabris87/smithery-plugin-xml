@@ -7,8 +7,8 @@ const aTests = [{
         result: function () {
             let node = new Node();
             node.name = "root";
-            node.type = "declaration";
-            node.path = "declaration";
+            node.type = "document";
+            node.path = "document";
             node.parent = undefined;
             return node;
         }
@@ -19,9 +19,17 @@ const aTests = [{
         result: function () {
             let node = new Node();
             node.name = "root";
-            node.type = "element";
-            node.path = "element";
+            node.type = "document";
+            node.path = "document";
             node.parent = undefined;
+            node.elements = [(function () {
+                let ele = new Node();
+                ele.name = "note";
+                ele.parent = node;
+                ele.type = "element";
+                ele.path = "document.element";
+                return ele;
+            })()];
             return node;
         }
     }
