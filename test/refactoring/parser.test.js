@@ -7,6 +7,7 @@ const aTests = [{
         result: function () {
             let node = new Node();
             node.name = "root";
+            node.xmlType = "";
             node.type = "document";
             node.path = "document";
             node.parent = undefined;
@@ -19,6 +20,7 @@ const aTests = [{
         result: function () {
             let node = new Node();
             node.name = "root";
+            node.xmlType = "";
             node.type = "document";
             node.path = "document";
             node.parent = undefined;
@@ -30,6 +32,26 @@ const aTests = [{
                 ele.path = "document.element";
                 return ele;
             })()];
+            return node;
+        }
+    }, {
+        title: 'Simple Declaration to Tree',
+        xml: '<?xml?>',
+        result: function () {
+            let node = new Node();
+            node.type = "document";
+            node.xmlType = "";
+            node.path = "document";
+            node.name = "root";
+            node.parent = undefined;
+            node.declaration = (() => {
+                var oDecl = new Node();
+                oDecl.type = "declaration";
+                oDecl.xmlType = "declaration";
+                oDecl.name = "declaration";
+                oDecl.parent = node;
+                oDecl.path = "document.declaration";
+            })()
             return node;
         }
     }
