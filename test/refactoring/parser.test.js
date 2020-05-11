@@ -38,50 +38,52 @@ const aTests = [{
             })()];
             return node;
         }
-    }
-    /* , {
-            title: 'Simple Declaration to Tree',
-            xml: '<?xml?>',
-            result: function () {
-                let node = new Node();
-                node.type = "document";
-                node.xmlType = "";
-                node.path = "document";
-                node.name = "root";
-                node.parent = undefined;
-                node.declaration = (() => {
+    }, {
+        title: 'Simple Declaration to Tree',
+        xml: '<?xml?>',
+        result: function () {
+            let node = new Node();
+            node.type = "document";
+            node.xmlType = "";
+            node.path = "document";
+            node.name = "root";
+            node.parent = undefined;
+            node.declaration = (() => {
+                var oDecl = new Node();
+                oDecl.type = "declaration";
+                oDecl.xmlType = "";
+                oDecl.name = "root";
+                oDecl.parent = node;
+                oDecl.path = "document.declaration";
+                oDecl.attributes = [];
+                return oDecl;
+            })();
+            node.elements = [];
+            return node;
+        }
+    }, {
+        title: 'Declaration with attributes to Tree',
+        xml: '<?xml version="1.0" encoding="utf-8"?>',
+        result: function () {
+            let node = new Node();
+            node.type = "document";
+            node.xmlType = "";
+            node.path = "document";
+            node.name = "root";
+            node.parent = undefined;
+            node.declaration = (
+                () => {
                     var oDecl = new Node();
                     oDecl.type = "declaration";
-                    oDecl.xmlType = "declaration";
-                    oDecl.name = "declaration";
-                    oDecl.parent = node;
-                    oDecl.path = "document.declaration";
-                    oDecl.attributes = [];
-                })();
-                return node;
-            }
-        }, {
-            title: 'Declaration with attributes to Tree',
-            xml: '<?xml version="1.0" encoding="utf-8"?>',
-            result: function () {
-                let node = new Node();
-                node.type = "document";
-                node.xmlType = "";
-                node.path = "document";
-                node.name = "root";
-                node.parent = undefined;
-                node.declaration = (() => {
-                    var oDecl = new Node();
-                    oDecl.type = "declaration";
-                    oDecl.xmlType = "declaration";
-                    oDecl.name = "declaration";
+                    oDecl.xmlType = "";
+                    oDecl.name = "root";
                     oDecl.parent = node;
                     oDecl.path = "document.declaration";
                     oDecl.attributes = [
                         (() => {
                             var oAtt1 = new Node();
                             oAtt1.type = "attribute";
-                            oAtt1.xmlType = "attribute";
+                            oAtt1.xmlType = "";
                             oAtt1.name = "version";
                             oAtt1.parent = oDecl;
                             oAtt1.path = "document.declaration.attribute";
@@ -92,6 +94,7 @@ const aTests = [{
                                 oId1.name = "version";
                                 oId1.parent = oAtt1;
                                 oId1.path = "document.declaration.attribute.identifier";
+                                return oId1;
                             })();
                             oAtt1.value = (() => {
                                 var oValue1 = new Node();
@@ -101,12 +104,14 @@ const aTests = [{
                                 oValue1.parent = oAtt1;
                                 oValue1.path = "document.declaration.attribute.value";
                                 oValue1.value = "1.0";
+                                return oValue1;
                             })()
+                            return oAtt1;
                         })(),
                         (() => {
                             var oAtt2 = new Node();
                             oAtt2.type = "attribute";
-                            oAtt2.xmlType = "attribute";
+                            oAtt2.xmlType = "";
                             oAtt2.name = "encoding";
                             oAtt2.parent = oDecl;
                             oAtt2.path = "document.declaration.attribute";
@@ -117,6 +122,7 @@ const aTests = [{
                                 oId.name = "encoding";
                                 oId.parent = oAtt2;
                                 oId.path = "document.declaration.attribute.identifier";
+                                return oId;
                             })();
                             oAtt2.value = (() => {
                                 var oValue2 = new Node();
@@ -126,13 +132,17 @@ const aTests = [{
                                 oValue2.parent = oAtt2;
                                 oValue2.path = "document.declaration.attribute.value";
                                 oValue2.value = "utf-8";
+                                return oValue2;
                             })()
+                            return oAtt2;
                         })()
                     ]
-                })()
-                return node;
-            }
-        } */
+                    return oDecl;
+                })();
+            node.elements = [];
+            return node;
+        }
+    }
 ]
 
 aTests.forEach(function (oTest) {
