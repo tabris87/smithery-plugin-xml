@@ -18,7 +18,6 @@
     "homepage": "https://github.com/tabris87/featureCLI-plugin-xml#readme",
     "devDependencies": {
         "featureCLI": "git+https://github.com/tabris87/featureJS.git",
-        "featureJS": "git+https://github.com/tabris87/featureJS.git",
         "jest": "^25.1.0",
         "jest-html-reporters": "^1.2.1"
     },
