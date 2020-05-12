@@ -34,6 +34,7 @@ const aTests = [{
                 ele.xmlType = "note";
                 ele.type = "element";
                 ele.path = "document.element";
+                ele.attributes = [];
                 return ele;
             })()];
             return node;
@@ -64,14 +65,14 @@ const aTests = [{
                         oAtt1.xmlType = "";
                         oAtt1.name = "content";
                         oAtt1.parent = ele;
-                        oAtt1.path = "document.declaration.attribute";
+                        oAtt1.path = "document.element.attribute";
                         oAtt1.identifier = (() => {
                             var oId1 = new Node();
                             oId1.type = "identifier";
                             oId1.xmlType = "";
                             oId1.name = "content";
                             oId1.parent = oAtt1;
-                            oId1.path = "document.declaration.attribute.identifier";
+                            oId1.path = "document.element.attribute.identifier";
                             return oId1;
                         })();
                         oAtt1.value = (() => {
@@ -80,7 +81,7 @@ const aTests = [{
                             oValue1.xmlType = "";
                             oValue1.name = "content";
                             oValue1.parent = oAtt1;
-                            oValue1.path = "document.declaration.attribute.value";
+                            oValue1.path = "document.element.attribute.value";
                             oValue1.value = "1";
                             return oValue1;
                         })()
@@ -92,14 +93,14 @@ const aTests = [{
                         oAtt2.xmlType = "";
                         oAtt2.name = "aria-hidden";
                         oAtt2.parent = ele;
-                        oAtt2.path = "document.declaration.attribute";
+                        oAtt2.path = "document.element.attribute";
                         oAtt2.identifier = (() => {
                             var oId = new Node();
                             oId.type = "identifier";
                             oId.xmlType = "";
                             oId.name = "aria-hidden";
                             oId.parent = oAtt2;
-                            oId.path = "document.declaration.attribute.identifier";
+                            oId.path = "document.element.attribute.identifier";
                             return oId;
                         })();
                         oAtt2.value = (() => {
@@ -108,7 +109,7 @@ const aTests = [{
                             oValue2.xmlType = "";
                             oValue2.name = "aria-hidden";
                             oValue2.parent = oAtt2;
-                            oValue2.path = "document.declaration.attribute.value";
+                            oValue2.path = "document.element.attribute.value";
                             oValue2.value = "true";
                             return oValue2;
                         })()
