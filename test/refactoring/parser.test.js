@@ -120,6 +120,59 @@ const aTests = [{
             })()];
             return node;
         }
+    },
+    {
+        title: 'Single Node with attributes to Tree',
+        xml: '<note content="1" aria-hidden="true"/>',
+        result: function () {
+            let node = new Node();
+            node.name = "root";
+            node.xmlType = "";
+            node.type = "document";
+            node.path = "document";
+            node.parent = undefined;
+            node.declaration = undefined;
+            node.elements = [(function () {
+                let ele = new Node();
+                ele.name = "firstNode";
+                ele.parent = node;
+                ele.xmlType = "note";
+                ele.type = "element";
+                ele.path = "document.element";
+                ele.attributes = [
+                    (() => {
+                        var oAtt1 = new Node();
+                        oAtt1.type = "attribute";
+                        oAtt1.xmlType = "";
+                        oAtt1.name = "id";
+                        oAtt1.parent = ele;
+                        oAtt1.path = "document.element.attribute";
+                        oAtt1.identifier = (() => {
+                            var oId1 = new Node();
+                            oId1.type = "identifier";
+                            oId1.xmlType = "";
+                            oId1.name = "id";
+                            oId1.parent = oAtt1;
+                            oId1.path = "document.element.attribute.identifier";
+                            return oId1;
+                        })();
+                        oAtt1.value = (() => {
+                            var oValue1 = new Node();
+                            oValue1.type = "value";
+                            oValue1.xmlType = "";
+                            oValue1.name = "id";
+                            oValue1.parent = oAtt1;
+                            oValue1.path = "document.element.attribute.value";
+                            oValue1.value = "firstNode";
+                            return oValue1;
+                        })()
+                        return oAtt1;
+                    })()
+                ]
+                return ele;
+            })()];
+            return node;
+        }
     }, {
         title: 'Simple Declaration to Tree',
         xml: '<?xml?>',
