@@ -122,7 +122,7 @@ const aTests = [{
         }
     },
     {
-        title: 'Single Node with attributes to Tree',
+        title: 'Single Node with id to Tree',
         xml: '<note content="1" aria-hidden="true"/>',
         result: function () {
             let node = new Node();
