@@ -1,7 +1,8 @@
 const parser = require('../../lib/parser');
 const Node = require('featurecli-commons').types.Node;
 
-const aTests = [{
+const aTests = [
+    {
         title: 'Empty XML',
         xml: '',
         result: function () {

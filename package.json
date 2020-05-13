@@ -4,7 +4,9 @@
     "description": "XML Plugin for the featureCLI",
     "main": "index.js",
     "scripts": {
-        "test": "jest --runInBand"
+        "test": "jest --runInBand",
+        "test-debug": "node --inspect ./node_modules/jest/bin/jest.js --runInBand",
+        "test-init-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
     },
     "repository": {
         "type": "git",
