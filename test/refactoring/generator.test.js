@@ -42,7 +42,7 @@ const aTests = [{
     {
         title: 'Single Node with attributes to Tree',
         xml: '<note content="1" aria-hidden="true"/>',
-        result: function () {
+        ast: function () {
             let node = new Node();
             node.name = "root";
             node.xmlType = "";
