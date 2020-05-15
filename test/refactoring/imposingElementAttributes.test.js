@@ -64,3 +64,31 @@ test('Add attribute', () => {
 
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });
+
+test('Attribute overwrite element', () => {
+    const sBaseXML =
+        '<note id="1" test="WAT" blub="temp">' +
+        '</note>';
+    const sFeatureXML =
+        '<note id="1" blub="absauf">' +
+        '</note>';
+    const sResultXML = formatResult(
+        '<note id="1" test="WAT" blub="absauf">' +
+        '</note>');
+
+    expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
+});
+
+test('Attribute overwrite element nested', () => {
+    const sBaseXML =
+        '<note id="1">' +
+        '   <test id="2" temp="blub"/>' +
+        '</note>';
+    const sFeatureXML =
+        '<note id="1">' +
+        '   <test id="2" temp="blub blub"/>' +
+        '</note>';
+    const sResultXML = formatResult(sFeatureXML);
+
+    expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
+});

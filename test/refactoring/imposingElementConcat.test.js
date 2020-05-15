@@ -1,6 +1,6 @@
-const generator = require('../lib/generator');
-const parser = require('../lib/parser');
-const aRules = require('../lib/rules');
+const generator = require('../../lib/generator');
+const parser = require('../../lib/parser');
+const aRules = require('../../lib/rules');
 //setup the heavy dependency chain
 const ImposerCL = require('featureJS/lib/Imposer');
 const ParserCL = require('featureJS/lib/Parser');
@@ -132,6 +132,5 @@ test('duo root elements, same type', () => {
         '</note>' +
         '<what>' +
         '</what>');
-    debugger;
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });
