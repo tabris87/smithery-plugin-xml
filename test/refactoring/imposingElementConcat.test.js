@@ -68,7 +68,6 @@ test('Element concatenate same type', () => {
         '   <subnote>' +
         '   </subnote>' +
         '</note>');
-    debugger;
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });
 
