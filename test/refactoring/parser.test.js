@@ -16,8 +16,7 @@ const aTests = [
             node.elements = [];
             return node;
         }
-    },
-    {
+    }, {
         title: 'Single Node to Tree',
         xml: '<note/>',
         result: function () {
@@ -41,8 +40,7 @@ const aTests = [
             })()];
             return node;
         }
-    },
-    {
+    }, {
         title: 'Single Node with attributes to Tree',
         xml: '<note content="1" aria-hidden="true"/>',
         result: function () {
@@ -123,8 +121,7 @@ const aTests = [
             })()];
             return node;
         }
-    },
-    {
+    }, {
         title: 'Single Node with id to Tree',
         xml: '<note id="firstNode"/>',
         result: function () {
@@ -534,7 +531,6 @@ const aTests = [
             return node;
         }
     }
-             
 ]
 
 aTests.forEach(function (oTest) {
