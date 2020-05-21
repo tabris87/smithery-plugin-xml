@@ -57,7 +57,7 @@ test('Element concatenate documentLevel same type', () => {
 
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });
-/* 
+
 test('Element concatenate different type', () => {
     const sBaseXML =
         '<note id="1">' +
@@ -76,7 +76,7 @@ test('Element concatenate different type', () => {
         '   <additionalnote>' +
         '   </additionalnote>' +
         '</note>');
-
+    ;
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });
 
@@ -98,6 +98,7 @@ test('Element concatenate same type', () => {
         '   <subnote>' +
         '   </subnote>' +
         '</note>');
+    ;
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });
 
@@ -162,4 +163,4 @@ test('duo root elements, same type', () => {
         '<what>' +
         '</what>');
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
-}); */
+});

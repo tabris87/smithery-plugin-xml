@@ -89,6 +89,23 @@ test('Attribute overwrite element nested', () => {
         '   <test id="2" temp="blub blub"/>' +
         '</note>';
     const sResultXML = formatResult(sFeatureXML);
+    debugger;
+    expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
+});
 
+test('Attribute overwrite element nested 2', () => {
+    const sBaseXML =
+        '<note id="1">' +
+        '   <test id="2" temp1="blub"/>' +
+        '</note>';
+    const sFeatureXML =
+        '<note id="1">' +
+        '   <test id="2" temp2="blub blub"/>' +
+        '</note>';
+    const sResultXML = formatResult(
+        '<note id="1">' +
+        '   <test id="2" temp1="blub" temp2="blub blub"/>' +
+        '</note>');
+    debugger;
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });
