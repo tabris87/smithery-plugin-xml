@@ -28,6 +28,36 @@ function formatResult(sResultString) {
     return generator.generate(parser.parse(sResultString));
 }
 
+test('Element concatenate documentLevel different type', () => {
+    const sBaseXML =
+        '<note/>';
+
+    const sFeatureXML =
+        '<newnote/>';
+
+    const sResultXML = formatResult(
+        '<note/>' +
+        '<newnote/>'
+    );
+
+    expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
+});
+
+test('Element concatenate documentLevel same type', () => {
+    const sBaseXML =
+        '<note/>';
+
+    const sFeatureXML =
+        '<note/>';
+
+    const sResultXML = formatResult(
+        '<note/>' +
+        '<note/>'
+    );
+
+    expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
+});
+/* 
 test('Element concatenate different type', () => {
     const sBaseXML =
         '<note id="1">' +
@@ -132,4 +162,4 @@ test('duo root elements, same type', () => {
         '<what>' +
         '</what>');
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
-});
+}); */
