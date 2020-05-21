@@ -1,33 +1,7 @@
-const generator = require('../../lib/generator');
-const parser = require('../../lib/parser');
-const aRules = require('../../lib/rules');
-
-//setup dependencies to featureCLI
-const ImposerCL = require('featureCLI/lib/Imposer');
-const ParserCL = require('featureCLI/lib/Parser');
-const GeneratorCL = require('featureCLI/lib/Generator');
-const RuleSetCL = require('featureCLI/lib/RuleSet');
-
-const oImposer = new ImposerCL({
-    parser: new ParserCL(),
-    generator: new GeneratorCL(),
-    rules: new RuleSetCL()
-});
-
-oImposer.getParser().addParser(parser, 'xml');
-oImposer.getGenerator().addGenerator(generator, 'xml');
-oImposer.getRuleSet().addMultipleRules(aRules);
-
-function imposing(sBaseXML, sFeatureXML) {
-    const oASTBase = parser.parse(sBaseXML);
-    const oASTFeature = parser.parse(sFeatureXML);
-    const resultAST = oImposer.impose(oASTBase, oASTFeature, oImposer.getParser().getVisitorKeys('xml'));
-    return oImposer.getGenerator().generate(resultAST, 'xml');
-}
-
-function formatResult(sResultString) {
-    return generator.generate(parser.parse(sResultString));
-}
+const {
+    imposing,
+    formatResult
+} = require('./testUtils');
 
 test('Attribute overwrite declaration', () => {
     const sBaseXML = '<?xml version="1.0" encoding="utf-8"?>';
