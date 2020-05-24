@@ -1,32 +1,37 @@
-const generator = require('../lib/generator');
-const parser = require('../lib/parser');
-const aRules = require('../lib/rules');
-//setup the heavy dependency chain
-const ImposerCL = require('featureJS/lib/Imposer');
-const ParserCL = require('featureJS/lib/Parser');
-const GeneratorCL = require('featureJS/lib/Generator');
-const RuleSetCL = require('featureJS/lib/RuleSet');
+const {
+    imposing,
+    formatResult
+} = require('./testUtils');
 
-const oImposer = new ImposerCL({
-    parser: new ParserCL(),
-    generator: new GeneratorCL(),
-    rules: new RuleSetCL()
-})
+test('Element concatenate documentLevel different type', () => {
+    const sBaseXML =
+        '<note/>';
 
-oImposer.getParser().addParser(parser, 'xml');
-oImposer.getGenerator().addGenerator(generator, 'xml');
-oImposer.getRuleSet().addMultipleRules(aRules);
+    const sFeatureXML =
+        '<newnote/>';
 
-function imposing(sBaseXML, sFeatureXML) {
-    const oASTBase = parser.parse(sBaseXML);
-    const oASTFeature = parser.parse(sFeatureXML);
-    const resultAST = oImposer.impose(oASTBase, oASTFeature, oImposer.getParser().getVisitorKeys('xml'));
-    return oImposer.getGenerator().generate(resultAST, 'xml');
-}
+    const sResultXML = formatResult(
+        '<note/>' +
+        '<newnote/>'
+    );
 
-function formatResult(sResultString) {
-    return generator.generate(parser.parse(sResultString));
-}
+    expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
+});
+
+test('Element concatenate documentLevel same type', () => {
+    const sBaseXML =
+        '<note/>';
+
+    const sFeatureXML =
+        '<note/>';
+
+    const sResultXML = formatResult(
+        '<note/>' +
+        '<note/>'
+    );
+
+    expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
+});
 
 test('Element concatenate different type', () => {
     const sBaseXML =
@@ -45,8 +50,7 @@ test('Element concatenate different type', () => {
         '   </subnote>' +
         '   <additionalnote>' +
         '   </additionalnote>' +
-        '</note>');
-
+        '</note>');;
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });
 
@@ -67,8 +71,7 @@ test('Element concatenate same type', () => {
         '   </subnote>' +
         '   <subnote>' +
         '   </subnote>' +
-        '</note>');
-    debugger;
+        '</note>');;
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });
 
@@ -132,6 +135,5 @@ test('duo root elements, same type', () => {
         '</note>' +
         '<what>' +
         '</what>');
-    debugger;
     expect(imposing(sBaseXML, sFeatureXML)).toBe(sResultXML);
 });

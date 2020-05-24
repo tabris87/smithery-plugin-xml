@@ -1,10 +1,12 @@
 {
     "name": "featurecli-plugin-xml",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "XML Plugin for the featureCLI",
     "main": "index.js",
     "scripts": {
-        "test": "jest --runInBand"
+        "test": "jest --runInBand",
+        "test-debug": "node --inspect ./node_modules/jest/bin/jest.js --runInBand",
+        "test-init-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
     },
     "repository": {
         "type": "git",
@@ -17,7 +19,7 @@
     },
     "homepage": "https://github.com/tabris87/featureCLI-plugin-xml#readme",
     "devDependencies": {
-        "featureJS": "git+https://github.com/tabris87/featureJS.git",
+        "featureCLI": "git+https://github.com/tabris87/featureJS.git",
         "jest": "^25.1.0",
         "jest-html-reporters": "^1.2.1"
     },
