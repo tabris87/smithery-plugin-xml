@@ -529,6 +529,31 @@ const aTests = [{
         })()];
         return node;
     }
+}, {
+    title: 'Comment only',
+    xml: '<!-- DynamicPage Title -->',
+    result: function () {
+        let node = new Node();
+        node.name = "root";
+        node.xmlType = "";
+        node.type = "document";
+        node.path = "document";
+        node.parent = undefined;
+        node.declaration = undefined;
+        node.elements = [(function () {
+            let ele = new Node();
+            ele.name = "root";
+            ele.parent = node;
+            ele.xmlType = "comment";
+            ele.type = "comment";
+            ele.path = "document.comment";
+            ele.elements = [];
+            ele.value = " DynamicPage Title "
+            ele.attributes = [];
+            return ele;
+        })()];
+        return node;
+    }
 }]
 
 aTests.forEach(function (oTest) {
