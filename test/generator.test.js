@@ -566,9 +566,7 @@ const aTests = [{
             ele.xmlType = "comment";
             ele.type = "comment";
             ele.path = "document.comment";
-            ele.elements = [];
             ele.value = " DynamicPage Title "
-            ele.attributes = [];
             return ele;
         })()];
         return node;
