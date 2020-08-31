@@ -7,7 +7,7 @@
         "url": "git+https://github.com/tabris87/smithery-plugin-xml.git"
     },
     "license": "Apache-2.0",
-    "description": "A plugin for smithery to support feature oriented programming with JSON",
+    "description": "A plugin for smithery to support feature oriented programming with XML",
     "scripts": {
         "test": "jest --runInBand"
     },
