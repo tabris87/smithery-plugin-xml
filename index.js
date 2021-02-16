@@ -8,10 +8,4 @@ module.exports = {
         fileEnding: "xml",
         generator: require('./lib/generator')
     }
-    /*,
-    dependencies: [] */
-    /* {
-        pluginName: "", 
-        version: ""
-    }*/
 }
